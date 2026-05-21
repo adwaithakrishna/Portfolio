@@ -1,349 +1,319 @@
-import React, { useEffect, useRef } from "react";
-import character from "../assets/character.webp";
+import React from "react";
 
-function Fireflies() {
-  const flies = [
-    { left: "15%", top: "60%", delay: "0s", duration: "7s" },
-    { left: "78%", top: "55%", delay: "2s", duration: "9s" },
-    { left: "45%", top: "72%", delay: "4s", duration: "6s" },
-    { left: "30%", top: "80%", delay: "1s", duration: "11s" },
-    { left: "65%", top: "68%", delay: "3.5s", duration: "8s" },
-    { left: "88%", top: "75%", delay: "5s", duration: "10s" },
-    { left: "10%", top: "78%", delay: "2.5s", duration: "7.5s" },
+function About() {
+  const traits = [
+    {
+      icon: "◉",
+      label: "Goal-Oriented",
+      desc: "Driven by purpose and excellence",
+      glow: "rgba(232,160,32,0.15)",
+    },
+
+    {
+      icon: "◆",
+      label: "Team Player",
+      desc: "Collaborative and communicative",
+      glow: "rgba(124,63,160,0.15)",
+    },
+
+    {
+      icon: "▣",
+      label: "Continuous Learner",
+      desc: "Always growing and adapting",
+      glow: "rgba(48,96,200,0.15)",
+    },
+
+    {
+      icon: "✦",
+      label: "Creative Thinker",
+      desc: "Crafting elegant solutions",
+      glow: "rgba(212,96,16,0.15)",
+    },
   ];
-  return (
-    <>
-      {flies.map((f, i) => (
-        <div
-          key={i}
-          className="firefly"
-          style={{
-            left: f.left,
-            top: f.top,
-            animationDuration: f.duration,
-            animationDelay: f.delay,
-          }}
-        />
-      ))}
-    </>
-  );
-}
-
-function Home() {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    el.style.opacity = "0";
-    el.style.transform = "translateY(28px)";
-    setTimeout(() => {
-      el.style.transition = "opacity 1s ease, transform 1s ease";
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }, 100);
-  }, []);
 
   return (
     <section
-      id="home-page"
+      id="about-page"
       style={{
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "120px 24px 80px",
+        padding: "100px 32px",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      <Fireflies />
+      {/* Purple bloom accent */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-80px",
+          width: "420px",
+          height: "420px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(124,63,160,0.12) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
 
       <div
-        ref={heroRef}
-        className="hero-grid"
         style={{
-          maxWidth: "1250px",
+          maxWidth: "1100px",
           width: "100%",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "6rem",
-          alignItems: "center",
           position: "relative",
-          zIndex: 10,
+          zIndex: 1,
         }}
       >
-        {/* Left Side */}
-        <div>
-          {/* Eyebrow */}
+        {/* Label */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            marginBottom: "2.2rem",
+          }}
+        >
           <div
-            className="hero-eyebrow"
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "14px",
-              marginBottom: "2.5rem",
+              width: "7px",
+              height: "7px",
+              borderRadius: "50%",
+              background: "var(--purple-light)",
+              boxShadow: "0 0 12px var(--purple-light)",
             }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: "7px", height: "7px",
-                borderRadius: "50%",
-                background: "var(--amber-moon)",
-                boxShadow: "0 0 12px var(--amber-moon)",
-                flexShrink: 0,
-              }}
-            />
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "0.8rem",
-                letterSpacing: "0.26em",
-                textTransform: "uppercase",
-                color: "var(--amber-moon)",
-                textShadow: "0 0 12px rgba(232,160,32,0.5)",
-              }}
-            >
-              Computer Engineering Student
-            </span>
-          </div>
-
-          {/* Name */}
-          <h1
+          />
+          <span
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.8rem, 5.5vw, 5.4rem)",
-              fontWeight: 900,
-              lineHeight: 1.05,
-              color: "var(--text-bright)",
-              marginBottom: "2rem",
-              letterSpacing: "0.02em",
+              fontSize: "0.82rem",
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+              color: "var(--purple-light)",
             }}
           >
-            Adwaitha
-            <br />
-            <span
-              style={{
-                color: "var(--amber-moon)",
-                textShadow: "0 0 35px rgba(232,160,32,0.55)",
-                fontStyle: "italic",
-              }}
-            >
-              Krishna
-            </span>{" "}
-            A S
-          </h1>
+            Portfolio
+          </span>
+        </div>
 
-          {/* Divider */}
+        {/* Heading */}
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(3.4rem, 5.5vw, 5rem)",
+            fontWeight: 900,
+            color: "var(--text-bright)",
+            marginBottom: "3.5rem",
+            letterSpacing: "0.02em",
+            lineHeight: 1.1,
+          }}
+        >
+          About{" "}
+          <span
+            style={{
+              color: "var(--amber-moon)",
+              fontStyle: "italic",
+              textShadow: "0 0 32px rgba(232,160,32,0.5)",
+            }}
+          >
+            Me
+          </span>
+        </h2>
+
+        {/* Main card */}
+        <div
+          className="night-card"
+          style={{
+            padding: "3.8rem",
+            marginBottom: "3rem",
+            background: "rgba(8,22,32,0.78)",
+            border: "1px solid rgba(232,160,32,0.18)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Decorative corner glow */}
           <div
             style={{
-              width: "90px",
-              height: "2px",
-              marginBottom: "2rem",
-              background: "linear-gradient(90deg, var(--amber-moon), rgba(232,160,32,0.2))",
-              boxShadow: "0 0 10px rgba(232,160,32,0.4)",
+              position: "absolute",
+              top: "-30px",
+              right: "-30px",
+              width: "180px",
+              height: "180px",
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(212,96,16,0.14) 0%, transparent 70%)",
+              pointerEvents: "none",
             }}
           />
 
-          {/* Tagline */}
           <p
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "clamp(1rem, 2vw, 1.2rem)",
-              lineHeight: 2.1,
+              fontSize: "1.28rem",
+              lineHeight: 2,
               color: "var(--text-mid)",
               fontWeight: 300,
-              marginBottom: "3.2rem",
-              maxWidth: "520px",
+              maxWidth: "780px",
+              marginBottom: "3rem",
             }}
           >
-            Passionate about modern web development, UI/UX design, and building
-            creative digital experiences with React, Tailwind CSS, and JavaScript.
+            I am motivated to grow personally and professionally, handling
+            challenges with a positive attitude. I value teamwork and
+            dedication, aiming to contribute positively to the modern
+            workplace through continuous learning and technical excellence.
           </p>
 
-          {/* Buttons */}
+          {/* Quote */}
           <div
-            className="hero-buttons"
-            style={{ display: "flex", gap: "1.4rem", flexWrap: "wrap" }}
+            style={{
+              paddingLeft: "2rem",
+              borderLeft: "2px solid var(--amber-moon)",
+              boxShadow: "-4px 0 18px rgba(232,160,32,0.2)",
+            }}
           >
-            <a
-              href="#projects-page"
+            <p
               style={{
-                display: "inline-block",
-                padding: "17px 42px",
-                background: "linear-gradient(135deg, var(--amber-moon), var(--orange-tree))",
-                color: "#060e18",
                 fontFamily: "var(--font-display)",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                borderRadius: "100px",
-                boxShadow: "0 0 28px rgba(232,160,32,0.45), 0 4px 20px rgba(0,0,0,0.5)",
-                transition: "all 0.25s",
+                fontSize: "1.5rem",
+                fontStyle: "italic",
+                color: "var(--text-bright)",
+                lineHeight: 1.8,
               }}
             >
-              View Projects
-            </a>
-            <a
-              href="#contact-page"
-              style={{
-                display: "inline-block",
-                padding: "16px 42px",
-                background: "transparent",
-                color: "var(--text-mid)",
-                fontFamily: "var(--font-display)",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                borderRadius: "100px",
-                border: "1px solid rgba(232,160,32,0.35)",
-                transition: "all 0.25s",
-              }}
-            >
-              Contact Me
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div
-            className="hero-stats"
-            style={{ display: "flex", gap: "4rem", marginTop: "4.5rem", flexWrap: "wrap" }}
-          >
-            {[
-              { num: "2",    label: "Projects"   },
-              { num: "8+",   label: "Skills"     },
-              { num: "2027", label: "Graduating" },
-            ].map(({ num, label }) => (
-              <div key={label}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-                    fontWeight: 900,
-                    color: "var(--amber-moon)",
-                    textShadow: "0 0 18px rgba(232,160,32,0.45)",
-                  }}
-                >
-                  {num}
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.78rem",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--text-dim)",
-                    marginTop: "4px",
-                  }}
-                >
-                  {label}
-                </div>
-              </div>
-            ))}
+              "Building tomorrow's digital world, one line of code at a time."
+            </p>
           </div>
         </div>
 
-        {/* Right Side Image */}
+        {/* Traits */}
         <div
-          className="hero-image-wrapper"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "1.8rem",
+          }}
         >
-          <div
-            style={{ position: "relative", width: "430px", height: "520px" }}
-            className="hero-image-card"
-          >
-            {/* Glow */}
+          {traits.map(({ icon, label, desc, glow }) => (
             <div
-              style={{
-                position: "absolute",
-                inset: "-30px",
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(212,96,16,0.22) 0%, rgba(124,63,160,0.12) 50%, transparent 75%)",
-                filter: "blur(35px)",
-              }}
-            />
-
-            {/* Image Card */}
-            <div
+              key={label}
               className="night-card"
               style={{
+                padding: "2.3rem",
+                background: "rgba(8,22,32,0.72)",
                 position: "relative",
-                width: "100%",
-                height: "100%",
-                borderRadius: "30px",
                 overflow: "hidden",
-                border: "1px solid rgba(232,160,32,0.25)",
-                boxShadow: "0 0 60px rgba(0,0,0,0.7), 0 0 35px rgba(212,96,16,0.15)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = `0 0 40px ${glow}, 0 8px 32px rgba(0,0,0,0.5)`;
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <img
-                src={character}
-                alt="Adwaitha Krishna A S"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
-
-              {/* Overlay */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(180deg, transparent 50%, rgba(6,14,24,0.75) 100%)",
+                  background: `radial-gradient(circle at 80% 20%, ${glow} 0%, transparent 60%)`,
+                  pointerEvents: "none",
                 }}
               />
 
-              {/* Badge */}
+              <div style={{ fontSize: "2.6rem", marginBottom: "18px" }}>
+                {icon}
+              </div>
+
               <div
                 style={{
-                  position: "absolute",
-                  bottom: 20, left: 20, right: 20,
-                  background: "rgba(6,14,24,0.82)",
-                  backdropFilter: "blur(18px)",
-                  border: "1px solid rgba(232,160,32,0.2)",
-                  borderRadius: "16px",
-                  padding: "14px 18px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.08rem",
+                  fontWeight: 600,
+                  color: "var(--text-bright)",
+                  letterSpacing: "0.06em",
+                  marginBottom: "10px",
                 }}
               >
-                <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>✨</span>
-                <div style={{ minWidth: 0 }}>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "clamp(0.75rem, 1.5vw, 0.9rem)",
-                      fontWeight: 600,
-                      color: "var(--text-bright)",
-                      letterSpacing: "0.08em",
-                    }}
-                  >
-                    Open to Opportunities
-                  </div>
-                  <div style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>
-                    Internships &amp; Projects
-                  </div>
-                </div>
-                <div
-                  style={{
-                    marginLeft: "auto",
-                    width: "10px", height: "10px",
-                    borderRadius: "50%",
-                    background: "#60d080",
-                    boxShadow: "0 0 10px #60d080",
-                    flexShrink: 0,
-                  }}
-                />
+                {label}
+              </div>
+
+              <div
+                style={{
+                  fontSize: "1rem",
+                   color: "var(--text-mid)",
+                  lineHeight: 1.8,
+                }}
+              >
+                {desc}
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* CTAs */}
+        <div
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            marginTop: "3.5rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            {
+              label: "Explore Skills",
+              href: "#skills-page",
+              primary: true,
+            },
+            {
+              label: "Contact Me",
+              href: "#contact-page",
+              primary: false,
+            },
+          ].map(({ label, href, primary }) => (
+            <a
+              key={label}
+              href={href}
+              style={{
+                display: "inline-block",
+                padding: "16px 36px",
+                background: primary
+                  ? "linear-gradient(135deg, var(--amber-moon), var(--orange-tree))"
+                  : "transparent",
+                color: primary ? "#060e18" : "var(--text-mid)",
+                fontFamily: "var(--font-display)",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                borderRadius: "100px",
+                border: primary
+                  ? "none"
+                  : "1px solid rgba(232,160,32,0.3)",
+                boxShadow: primary
+                  ? "0 0 22px rgba(232,160,32,0.4)"
+                  : "none",
+                transition: "all 0.25s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "translateY(0)";
+              }}
+            >
+              {label}
+            </a>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-export default Home;
+export default About;
