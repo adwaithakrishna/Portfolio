@@ -185,9 +185,9 @@ img { display: block; }
 /* Tablet */
 @media (max-width: 900px) {
   /* Navbar */
-  .navbar-links { display: none; }
-  .navbar-hamburger { display: flex; }
-  .navbar-hire-btn { display: none; }
+  .navbar-links { display: none !important; }
+  .navbar-hamburger { display: flex !important; }
+  .navbar-hire-btn { display: none !important; }
 
   /* Home hero grid → single column */
   .hero-grid {

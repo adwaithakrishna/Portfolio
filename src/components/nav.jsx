@@ -142,7 +142,6 @@ function Navbar() {
             borderRadius: "10px",
             padding: "8px 10px",
             cursor: "pointer",
-            display: "flex",
             flexDirection: "column",
             gap: "5px",
             alignItems: "center",
