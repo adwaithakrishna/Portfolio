@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import character from "../assets/character.webp";
 
-/* Firefly component */
 function Fireflies() {
   const flies = [
     { left: "15%", top: "60%", delay: "0s", duration: "7s" },
@@ -12,7 +11,6 @@ function Fireflies() {
     { left: "88%", top: "75%", delay: "5s", duration: "10s" },
     { left: "10%", top: "78%", delay: "2.5s", duration: "7.5s" },
   ];
-
   return (
     <>
       {flies.map((f, i) => (
@@ -37,10 +35,8 @@ function Home() {
   useEffect(() => {
     const el = heroRef.current;
     if (!el) return;
-
     el.style.opacity = "0";
     el.style.transform = "translateY(28px)";
-
     setTimeout(() => {
       el.style.transition = "opacity 1s ease, transform 1s ease";
       el.style.opacity = "1";
@@ -56,19 +52,16 @@ function Home() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "120px 24px",
+        padding: "120px 24px 80px",
         position: "relative",
         overflow: "hidden",
-        marginTop: "0",
-        marginBottom: "0",
-        border: "none",
       }}
     >
       <Fireflies />
 
-      {/* Hero content */}
       <div
         ref={heroRef}
+        className="hero-grid"
         style={{
           maxWidth: "1250px",
           width: "100%",
@@ -84,6 +77,7 @@ function Home() {
         <div>
           {/* Eyebrow */}
           <div
+            className="hero-eyebrow"
             style={{
               display: "flex",
               alignItems: "center",
@@ -94,14 +88,13 @@ function Home() {
             <span
               style={{
                 display: "inline-block",
-                width: "7px",
-                height: "7px",
+                width: "7px", height: "7px",
                 borderRadius: "50%",
                 background: "var(--amber-moon)",
                 boxShadow: "0 0 12px var(--amber-moon)",
+                flexShrink: 0,
               }}
             />
-
             <span
               style={{
                 fontFamily: "var(--font-display)",
@@ -120,7 +113,7 @@ function Home() {
           <h1
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(3.6rem, 5.5vw, 5.4rem)",
+              fontSize: "clamp(2.8rem, 5.5vw, 5.4rem)",
               fontWeight: 900,
               lineHeight: 1.05,
               color: "var(--text-bright)",
@@ -148,8 +141,7 @@ function Home() {
               width: "90px",
               height: "2px",
               marginBottom: "2rem",
-              background:
-                "linear-gradient(90deg, var(--amber-moon), rgba(232,160,32,0.2))",
+              background: "linear-gradient(90deg, var(--amber-moon), rgba(232,160,32,0.2))",
               boxShadow: "0 0 10px rgba(232,160,32,0.4)",
             }}
           />
@@ -158,7 +150,7 @@ function Home() {
           <p
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "1.2rem",
+              fontSize: "clamp(1rem, 2vw, 1.2rem)",
               lineHeight: 2.1,
               color: "var(--text-mid)",
               fontWeight: 300,
@@ -166,27 +158,21 @@ function Home() {
               maxWidth: "520px",
             }}
           >
-            Passionate about modern web development, UI/UX design, and
-            building creative digital experiences with React, Tailwind CSS,
-            and JavaScript.
+            Passionate about modern web development, UI/UX design, and building
+            creative digital experiences with React, Tailwind CSS, and JavaScript.
           </p>
 
           {/* Buttons */}
           <div
-            style={{
-              display: "flex",
-              gap: "1.4rem",
-              flexWrap: "wrap",
-            }}
+            className="hero-buttons"
+            style={{ display: "flex", gap: "1.4rem", flexWrap: "wrap" }}
           >
-            {/* Primary */}
             <a
               href="#projects-page"
               style={{
                 display: "inline-block",
                 padding: "17px 42px",
-                background:
-                  "linear-gradient(135deg, var(--amber-moon), var(--orange-tree))",
+                background: "linear-gradient(135deg, var(--amber-moon), var(--orange-tree))",
                 color: "#060e18",
                 fontFamily: "var(--font-display)",
                 fontSize: "0.8rem",
@@ -195,15 +181,12 @@ function Home() {
                 textTransform: "uppercase",
                 textDecoration: "none",
                 borderRadius: "100px",
-                boxShadow:
-                  "0 0 28px rgba(232,160,32,0.45), 0 4px 20px rgba(0,0,0,0.5)",
+                boxShadow: "0 0 28px rgba(232,160,32,0.45), 0 4px 20px rgba(0,0,0,0.5)",
                 transition: "all 0.25s",
               }}
             >
               View Projects
             </a>
-
-            {/* Secondary */}
             <a
               href="#contact-page"
               style={{
@@ -228,31 +211,26 @@ function Home() {
 
           {/* Stats */}
           <div
-            style={{
-              display: "flex",
-              gap: "4rem",
-              marginTop: "4.5rem",
-            }}
+            className="hero-stats"
+            style={{ display: "flex", gap: "4rem", marginTop: "4.5rem", flexWrap: "wrap" }}
           >
             {[
-              { num: "2", label: "Projects" },
-              { num: "8+", label: "Skills" },
+              { num: "2",    label: "Projects"   },
+              { num: "8+",   label: "Skills"     },
               { num: "2027", label: "Graduating" },
             ].map(({ num, label }) => (
               <div key={label}>
                 <div
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "2.6rem",
+                    fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
                     fontWeight: 900,
                     color: "var(--amber-moon)",
-                    textShadow:
-                      "0 0 18px rgba(232,160,32,0.45)",
+                    textShadow: "0 0 18px rgba(232,160,32,0.45)",
                   }}
                 >
                   {num}
                 </div>
-
                 <div
                   style={{
                     fontSize: "0.78rem",
@@ -271,17 +249,12 @@ function Home() {
 
         {/* Right Side Image */}
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
+          className="hero-image-wrapper"
+          style={{ display: "flex", justifyContent: "center" }}
         >
           <div
-            style={{
-              position: "relative",
-              width: "430px",
-              height: "520px",
-            }}
+            style={{ position: "relative", width: "430px", height: "520px" }}
+            className="hero-image-card"
           >
             {/* Glow */}
             <div
@@ -289,8 +262,7 @@ function Home() {
                 position: "absolute",
                 inset: "-30px",
                 borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(212,96,16,0.22) 0%, rgba(124,63,160,0.12) 50%, transparent 75%)",
+                background: "radial-gradient(circle, rgba(212,96,16,0.22) 0%, rgba(124,63,160,0.12) 50%, transparent 75%)",
                 filter: "blur(35px)",
               }}
             />
@@ -305,19 +277,13 @@ function Home() {
                 borderRadius: "30px",
                 overflow: "hidden",
                 border: "1px solid rgba(232,160,32,0.25)",
-                boxShadow:
-                  "0 0 60px rgba(0,0,0,0.7), 0 0 35px rgba(212,96,16,0.15)",
+                boxShadow: "0 0 60px rgba(0,0,0,0.7), 0 0 35px rgba(212,96,16,0.15)",
               }}
             >
               <img
                 src={character}
                 alt="Adwaitha Krishna A S"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
 
               {/* Overlay */}
@@ -325,8 +291,7 @@ function Home() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background:
-                    "linear-gradient(180deg, transparent 50%, rgba(6,14,24,0.75) 100%)",
+                  background: "linear-gradient(180deg, transparent 50%, rgba(6,14,24,0.75) 100%)",
                 }}
               />
 
@@ -334,26 +299,23 @@ function Home() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: 20,
-                  left: 20,
-                  right: 20,
+                  bottom: 20, left: 20, right: 20,
                   background: "rgba(6,14,24,0.82)",
                   backdropFilter: "blur(18px)",
                   border: "1px solid rgba(232,160,32,0.2)",
                   borderRadius: "16px",
-                  padding: "18px 22px",
+                  padding: "14px 18px",
                   display: "flex",
                   alignItems: "center",
-                  gap: "14px",
+                  gap: "12px",
                 }}
               >
-                <span style={{ fontSize: "1.4rem" }}>✨</span>
-
-                <div>
+                <span style={{ fontSize: "1.2rem", flexShrink: 0 }}>✨</span>
+                <div style={{ minWidth: 0 }}>
                   <div
                     style={{
                       fontFamily: "var(--font-display)",
-                      fontSize: "0.9rem",
+                      fontSize: "clamp(0.75rem, 1.5vw, 0.9rem)",
                       fontWeight: 600,
                       color: "var(--text-bright)",
                       letterSpacing: "0.08em",
@@ -361,25 +323,18 @@ function Home() {
                   >
                     Open to Opportunities
                   </div>
-
-                  <div
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "var(--text-dim)",
-                    }}
-                  >
-                    Internships & Projects
+                  <div style={{ fontSize: "0.75rem", color: "var(--text-dim)" }}>
+                    Internships &amp; Projects
                   </div>
                 </div>
-
                 <div
                   style={{
                     marginLeft: "auto",
-                    width: "10px",
-                    height: "10px",
+                    width: "10px", height: "10px",
                     borderRadius: "50%",
                     background: "#60d080",
                     boxShadow: "0 0 10px #60d080",
+                    flexShrink: 0,
                   }}
                 />
               </div>

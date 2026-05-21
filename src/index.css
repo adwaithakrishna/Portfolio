@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 
 :root {
-  /* Night sky palette from the image */
   --sky-deep:    #060e18;
   --sky-mid:     #0b1f2e;
   --teal-night:  #0d2b35;
@@ -39,7 +38,6 @@ body {
   color: var(--text-bright);
   min-height: 100vh;
   overflow-x: hidden;
-  /* Layered night-sky gradient */
   background-image:
     radial-gradient(ellipse 70% 50% at 72% 5%,  rgba(232,160,32,0.08) 0%, transparent 55%),
     radial-gradient(ellipse 50% 40% at 20% 80%,  rgba(124,63,160,0.10) 0%, transparent 55%),
@@ -47,7 +45,6 @@ body {
     linear-gradient(180deg, #060e18 0%, #0b1f2e 40%, #0d2b35 70%, #091a18 100%);
 }
 
-/* Star field layer */
 body::before {
   content: '';
   position: fixed;
@@ -83,7 +80,7 @@ body::before {
   50%  { opacity: 0.8; }
   100% { opacity: 0.6; }
 }
-/* Firefly animation */
+
 @keyframes firefly {
   0%   { transform: translate(0,0) scale(1);    opacity: 0; }
   20%  { opacity: 1; }
@@ -113,7 +110,6 @@ body::before {
 ::-webkit-scrollbar-track { background: var(--sky-deep); }
 ::-webkit-scrollbar-thumb { background: var(--teal-glow); border-radius: 3px; }
 
-/* Global card style */
 .night-card {
   background: var(--card-bg);
   border: 1px solid var(--border-teal);
@@ -128,29 +124,150 @@ body::before {
   transform: translateY(-4px);
 }
 
-/* Amber glow text */
 .glow-amber {
   text-shadow: 0 0 20px rgba(232,160,32,0.6), 0 0 40px rgba(232,160,32,0.2);
 }
+
 section {
   position: relative;
   background: transparent;
   margin: 0;
-  border: none;
+  border: none !important;
 }
+
 #home-page,
 #about-page {
   padding-bottom: 0;
-}
-img {
-  display: block;
-}
-#home-page,
-#about-page {
   background: transparent;
-  margin: 0;
 }
 
-section {
-  border: none !important;
+img { display: block; }
+
+/* ─── NAVBAR MOBILE ─────────────────────────────────────────── */
+.navbar-links { display: flex; }
+.navbar-hamburger { display: none; }
+.navbar-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(6,14,24,0.97);
+  backdrop-filter: blur(24px);
+  z-index: 199;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.navbar-mobile-menu.open { display: flex; }
+.navbar-mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.navbar-mobile-menu a:hover { color: var(--amber-moon); }
+.navbar-mobile-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  /* Navbar */
+  .navbar-links { display: none; }
+  .navbar-hamburger { display: flex; }
+  .navbar-hire-btn { display: none; }
+
+  /* Home hero grid → single column */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    text-align: center;
+  }
+  .hero-eyebrow { justify-content: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-stats { justify-content: center; gap: 2.5rem !important; }
+  .hero-image-wrapper { display: flex; justify-content: center; }
+  .hero-image-card { width: 320px !important; height: 380px !important; }
+
+  /* About traits grid */
+  .traits-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Skills grid */
+  .skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Project card grid → stack */
+  .project-card-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .project-num-icon { flex-direction: row !important; align-items: center; gap: 16px; }
+  .project-arrow { justify-self: flex-start; }
+
+  /* Contact cards */
+  .contact-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Education padding */
+  .edu-card { padding: 2.5rem !important; }
+
+  /* Footer top row */
+  .footer-top { flex-direction: column; gap: 2.5rem !important; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  /* Navbar */
+  nav { padding: 14px 20px !important; }
+
+  /* Home */
+  #home-page { padding: 100px 20px 60px !important; }
+  .hero-image-card { width: 280px !important; height: 320px !important; }
+  .hero-stats { gap: 1.8rem !important; }
+
+  /* About */
+  #about-page { padding: 80px 20px !important; }
+  .about-main-card { padding: 2rem !important; }
+  .traits-grid { grid-template-columns: 1fr !important; }
+  .about-ctas { flex-direction: column; gap: 1rem !important; }
+  .about-ctas a { text-align: center; }
+
+  /* Education */
+  #edu-page { padding: 80px 20px !important; }
+  .edu-timeline { padding-left: 36px !important; }
+  .edu-card { padding: 1.8rem !important; }
+
+  /* Skills */
+  #skills-page { padding: 80px 20px !important; }
+  .skills-grid { grid-template-columns: 1fr !important; }
+  .skills-header { flex-direction: column; align-items: flex-start; gap: 1rem !important; }
+
+  /* Projects */
+  #projects-page { padding: 80px 20px !important; }
+  .project-card-inner { padding: 2rem !important; }
+  .project-title { font-size: 1.5rem !important; }
+
+  /* Contact */
+  #contact-page { padding: 80px 20px !important; }
+  .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-banner { padding: 2rem !important; flex-direction: column; align-items: flex-start; }
+
+  /* Footer */
+  footer { padding: 60px 24px 32px !important; }
+  .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+}
+
+/* Very small screens */
+@media (max-width: 380px) {
+  .hero-image-card { width: 240px !important; height: 280px !important; }
 }

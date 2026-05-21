@@ -18,44 +18,27 @@ function Education() {
       <div
         style={{
           position: "absolute",
-          top: "20%",
-          right: "-100px",
-          width: "420px",
-          height: "420px",
+          top: "20%", right: "-100px",
+          width: "420px", height: "420px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(26,80,96,0.18) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(26,80,96,0.18) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
       <div
-        style={{
-          maxWidth: "1250px",
-          width: "100%",
-          position: "relative",
-          zIndex: 1,
-        }}
+        style={{ maxWidth: "1250px", width: "100%", position: "relative", zIndex: 1 }}
       >
         {/* Label */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "2rem",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "2rem" }}>
           <div
             style={{
-              width: "6px",
-              height: "6px",
+              width: "6px", height: "6px",
               borderRadius: "50%",
               background: "var(--teal-glow)",
               boxShadow: "0 0 12px var(--teal-glow)",
             }}
           />
-
           <span
             style={{
               fontFamily: "var(--font-display)",
@@ -73,7 +56,7 @@ function Education() {
         <h2
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(3.2rem, 5vw, 4.6rem)",
+            fontSize: "clamp(2.6rem, 5vw, 4.6rem)",
             fontWeight: 900,
             color: "var(--text-bright)",
             marginBottom: "4rem",
@@ -95,21 +78,16 @@ function Education() {
 
         {/* Timeline */}
         <div
-          style={{
-            position: "relative",
-            paddingLeft: "56px",
-          }}
+          className="edu-timeline"
+          style={{ position: "relative", paddingLeft: "56px" }}
         >
           {/* Vertical line */}
           <div
             style={{
               position: "absolute",
-              left: "12px",
-              top: 0,
-              bottom: 0,
+              left: "12px", top: 0, bottom: 0,
               width: "2px",
-              background:
-                "linear-gradient(180deg, var(--amber-moon) 0%, rgba(232,160,32,0.05) 100%)",
+              background: "linear-gradient(180deg, var(--amber-moon) 0%, rgba(232,160,32,0.05) 100%)",
               boxShadow: "0 0 10px rgba(232,160,32,0.2)",
             }}
           />
@@ -118,21 +96,17 @@ function Education() {
           <div
             style={{
               position: "absolute",
-              left: "1px",
-              top: "34px",
-              width: "22px",
-              height: "22px",
+              left: "1px", top: "34px",
+              width: "22px", height: "22px",
               borderRadius: "50%",
-              background:
-                "radial-gradient(circle, #ffd060, var(--amber-moon))",
-              boxShadow:
-                "0 0 18px rgba(232,160,32,0.8), 0 0 36px rgba(232,160,32,0.3)",
+              background: "radial-gradient(circle, #ffd060, var(--amber-moon))",
+              boxShadow: "0 0 18px rgba(232,160,32,0.8), 0 0 36px rgba(232,160,32,0.3)",
             }}
           />
 
           {/* Card */}
           <div
-            className="night-card"
+            className="night-card edu-card"
             style={{
               padding: "4rem",
               background: "rgba(8,22,32,0.82)",
@@ -141,17 +115,13 @@ function Education() {
               overflow: "hidden",
             }}
           >
-            {/* Inner amber glow */}
             <div
               style={{
                 position: "absolute",
-                top: "-40px",
-                right: "-40px",
-                width: "220px",
-                height: "220px",
+                top: "-40px", right: "-40px",
+                width: "220px", height: "220px",
                 borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(232,160,32,0.08) 0%, transparent 70%)",
+                background: "radial-gradient(circle, rgba(232,160,32,0.08) 0%, transparent 70%)",
                 pointerEvents: "none",
               }}
             />
@@ -171,15 +141,14 @@ function Education() {
             >
               <span
                 style={{
-                  width: "7px",
-                  height: "7px",
+                  width: "7px", height: "7px",
                   borderRadius: "50%",
                   background: "var(--amber-moon)",
                   boxShadow: "0 0 8px var(--amber-moon)",
                   display: "inline-block",
+                  flexShrink: 0,
                 }}
               />
-
               <span
                 style={{
                   fontFamily: "var(--font-display)",
@@ -198,7 +167,7 @@ function Education() {
             <h3
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "2.5rem",
+                fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                 fontWeight: 700,
                 color: "var(--text-bright)",
                 marginBottom: "1rem",
@@ -219,6 +188,7 @@ function Education() {
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
+                flexWrap: "wrap",
                 textShadow: "0 0 16px rgba(26,80,96,0.6)",
               }}
             >
@@ -231,31 +201,19 @@ function Education() {
                 fontFamily: "var(--font-body)",
                 fontSize: "1.05rem",
                 lineHeight: 2,
-                 color: "var(--text-bright)",
+                color: "var(--text-bright)",
                 fontWeight: 300,
                 maxWidth: "850px",
                 marginBottom: "2rem",
               }}
             >
               Focused on software development, programming, web technologies,
-              and modern computer engineering concepts with hands-on practical
-              learning.
+              and modern computer engineering concepts with hands-on practical learning.
             </p>
 
             {/* Tags */}
-            <div
-              style={{
-                display: "flex",
-                gap: "10px",
-                flexWrap: "wrap",
-              }}
-            >
-              {[
-                "Software Development",
-                "Web Technologies",
-                "Programming",
-                "Practical Learning",
-              ].map((tag) => (
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              {["Software Development", "Web Technologies", "Programming", "Practical Learning"].map((tag) => (
                 <span
                   key={tag}
                   style={{
@@ -286,20 +244,20 @@ function Education() {
             border: "1px solid rgba(74,124,89,0.18)",
             borderRadius: "18px",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "18px",
           }}
         >
           <span
             style={{
               fontSize: "1.5rem",
-               color: "var(--text-bright)",
+              color: "var(--text-bright)",
               textShadow: "0 0 10px rgba(26,128,140,0.5)",
+              flexShrink: 0,
             }}
           >
             ✦
           </span>
-
           <p
             style={{
               fontFamily: "var(--font-body)",
@@ -309,11 +267,8 @@ function Education() {
             }}
           >
             Currently in{" "}
-            <strong style={{ color: "var(--text-mid)" }}>
-              Year 2
-            </strong>{" "}
-            of a 3-year diploma, building real-world projects alongside
-            academics.
+            <strong style={{ color: "var(--text-mid)" }}>Year 2</strong>{" "}
+            of a 3-year diploma, building real-world projects alongside academics.
           </p>
         </div>
       </div>

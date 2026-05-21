@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  FaBriefcase,
-  FaLaptopCode,
-  FaArrowUp,
-} from "react-icons/fa";
+import { FaBriefcase, FaLaptopCode, FaArrowUp } from "react-icons/fa";
 
 function Project() {
   const projects = [
@@ -11,13 +7,12 @@ function Project() {
       title: "Smart Online Hiring Portal",
       description:
         "A modern hiring platform designed to connect recruiters and job seekers with an elegant user experience.",
-      tech: ["HTML","Django"],
+      tech: ["HTML", "Django"],
       icon: <FaBriefcase />,
       num: "01",
       glow: "rgba(232,160,32,0.14)",
       accent: "var(--amber-moon)",
     },
-    
     {
       title: "Portfolio Website",
       description:
@@ -47,44 +42,27 @@ function Project() {
       <div
         style={{
           position: "absolute",
-          top: "15%",
-          right: "-80px",
-          width: "420px",
-          height: "420px",
+          top: "15%", right: "-80px",
+          width: "420px", height: "420px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
       <div
-        style={{
-          maxWidth: "1200px",
-          width: "100%",
-          position: "relative",
-          zIndex: 1,
-        }}
+        style={{ maxWidth: "1200px", width: "100%", position: "relative", zIndex: 1 }}
       >
         {/* Label */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "14px",
-            marginBottom: "20px",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
           <div
             style={{
-              width: "7px",
-              height: "7px",
+              width: "7px", height: "7px",
               borderRadius: "50%",
               background: "var(--orange-tree)",
               boxShadow: "0 0 14px var(--orange-tree)",
             }}
           />
-
           <span
             style={{
               fontFamily: "var(--font-display)",
@@ -112,7 +90,7 @@ function Project() {
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(3.2rem, 5vw, 4.8rem)",
+              fontSize: "clamp(2.6rem, 5vw, 4.8rem)",
               fontWeight: 900,
               color: "var(--text-bright)",
               letterSpacing: "0.02em",
@@ -130,7 +108,6 @@ function Project() {
               Projects
             </span>
           </h2>
-
           <p
             style={{
               fontFamily: "var(--font-body)",
@@ -140,31 +117,19 @@ function Project() {
               lineHeight: 1.9,
             }}
           >
-            Modern projects focused on futuristic UI design and responsive
-            experiences.
+            Modern projects focused on futuristic UI design and responsive experiences.
           </p>
         </div>
 
         {/* Project cards */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2.5rem",
-          }}
-        >
+        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
           {projects.map((p, i) => (
             <div
               key={i}
               className="night-card"
               style={{
-                padding: "3.2rem",
                 background: "rgba(8,22,32,0.82)",
-                border: `1px solid rgba(232,160,32,0.15)`,
-                display: "grid",
-                gridTemplateColumns: "100px 1fr 70px",
-                gap: "2.5rem",
-                alignItems: "center",
+                border: "1px solid rgba(232,160,32,0.15)",
                 position: "relative",
                 overflow: "hidden",
               }}
@@ -178,158 +143,150 @@ function Project() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor =
-                  "rgba(232,160,32,0.15)";
+                e.currentTarget.style.borderColor = "rgba(232,160,32,0.15)";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
               {/* Inner glow */}
               <div
                 style={{
-                  position: "absolute",
-                  inset: 0,
+                  position: "absolute", inset: 0,
                   background: `radial-gradient(ellipse at 90% 10%, ${p.glow} 0%, transparent 60%)`,
                   pointerEvents: "none",
                 }}
               />
 
-              {/* Number + Icon */}
+              {/* Responsive inner grid */}
               <div
+                className="project-card-inner"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
+                  padding: "3.2rem",
+                  display: "grid",
+                  gridTemplateColumns: "100px 1fr 70px",
+                  gap: "2.5rem",
                   alignItems: "center",
-                  gap: "12px",
                 }}
               >
-                <span
+                {/* Number + Icon */}
+                <div
+                  className="project-num-icon"
                   style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.82rem",
-                    color: "var(--text-dim)",
-                    letterSpacing: "0.12em",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "12px",
                   }}
                 >
-                  {p.num}
-                </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "0.82rem",
+                      color: "var(--text-dim)",
+                      letterSpacing: "0.12em",
+                    }}
+                  >
+                    {p.num}
+                  </span>
+                  <div
+                    style={{
+                      width: "72px", height: "72px",
+                      borderRadius: "20px",
+                      background: "rgba(232,160,32,0.08)",
+                      border: "1px solid rgba(232,160,32,0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "1.8rem",
+                      color: "var(--amber-moon)",
+                      boxShadow: `0 0 24px ${p.glow}`,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {p.icon}
+                  </div>
+                </div>
 
-                <div
+                {/* Content */}
+                <div>
+                  <h3
+                    className="project-title"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
+                      fontWeight: 700,
+                      color: "var(--text-bright)",
+                      marginBottom: "1rem",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "1.05rem",
+                      lineHeight: 1.9,
+                      color: "var(--text-dim)",
+                      fontWeight: 300,
+                      marginBottom: "1.4rem",
+                      maxWidth: "700px",
+                    }}
+                  >
+                    {p.description}
+                  </p>
+                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                    {p.tech.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "0.8rem",
+                          fontWeight: 400,
+                          letterSpacing: "0.08em",
+                          color: p.accent === "var(--amber-moon)" ? "var(--amber-moon)" : "var(--purple-light)",
+                          background: p.accent === "var(--amber-moon)" ? "rgba(232,160,32,0.1)" : "rgba(124,63,160,0.1)",
+                          border: `1px solid ${p.accent === "var(--amber-moon)" ? "rgba(232,160,32,0.2)" : "rgba(124,63,160,0.2)"}`,
+                          borderRadius: "100px",
+                          padding: "6px 16px",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Arrow */}
+                <a
+                  href="#"
+                  className="project-arrow"
                   style={{
-                    width: "72px",
-                    height: "72px",
-                    borderRadius: "20px",
-                    background: "rgba(232,160,32,0.08)",
-                    border: "1px solid rgba(232,160,32,0.2)",
+                    width: "58px", height: "58px",
+                    borderRadius: "50%",
+                    border: "1px solid rgba(232,160,32,0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "1.8rem",
-                    color: "var(--amber-moon)",
-                    boxShadow: `0 0 24px ${p.glow}`,
+                    color: "var(--text-mid)",
+                    textDecoration: "none",
+                    fontSize: "1.1rem",
+                    flexShrink: 0,
+                    transition: "all 0.25s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = "var(--amber-moon)";
+                    e.target.style.color = "#060e18";
+                    e.target.style.boxShadow = "0 0 24px rgba(232,160,32,0.5)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = "transparent";
+                    e.target.style.color = "var(--text-mid)";
+                    e.target.style.boxShadow = "none";
                   }}
                 >
-                  {p.icon}
-                </div>
+                  <FaArrowUp style={{ transform: "rotate(45deg)" }} />
+                </a>
               </div>
-
-              {/* Content */}
-              <div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2.2rem",
-                    fontWeight: 700,
-                    color: "var(--text-bright)",
-                    marginBottom: "1rem",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {p.title}
-                </h3>
-
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "1.05rem",
-                    lineHeight: 1.9,
-                    color: "var(--text-dim)",
-                    fontWeight: 300,
-                    marginBottom: "1.4rem",
-                    maxWidth: "700px",
-                  }}
-                >
-                  {p.description}
-                </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "0.8rem",
-                        fontWeight: 400,
-                        letterSpacing: "0.08em",
-                        color:
-                          p.accent === "var(--amber-moon)"
-                            ? "var(--amber-moon)"
-                            : "var(--purple-light)",
-                        background:
-                          p.accent === "var(--amber-moon)"
-                            ? "rgba(232,160,32,0.1)"
-                            : "rgba(124,63,160,0.1)",
-                        border: `1px solid ${
-                          p.accent === "var(--amber-moon)"
-                            ? "rgba(232,160,32,0.2)"
-                            : "rgba(124,63,160,0.2)"
-                        }`,
-                        borderRadius: "100px",
-                        padding: "6px 16px",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <a
-                href="#"
-                style={{
-                  width: "58px",
-                  height: "58px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(232,160,32,0.25)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-mid)",
-                  textDecoration: "none",
-                  fontSize: "1.1rem",
-                  flexShrink: 0,
-                  transition: "all 0.25s",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = "var(--amber-moon)";
-                  e.target.style.color = "#060e18";
-                  e.target.style.boxShadow =
-                    "0 0 24px rgba(232,160,32,0.5)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = "transparent";
-                  e.target.style.color = "var(--text-mid)";
-                  e.target.style.boxShadow = "none";
-                }}
-              >
-                <FaArrowUp style={{ transform: "rotate(45deg)" }} />
-              </a>
             </div>
           ))}
         </div>

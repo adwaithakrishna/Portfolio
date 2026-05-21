@@ -1,18 +1,6 @@
 import React from "react";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-  FaReact,
-  FaJava,
-  FaPython,
-} from "react-icons/fa";
-
-import {
-  SiTailwindcss,
-  SiC,
-  SiDjango,
-} from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaJava, FaPython } from "react-icons/fa";
+import { SiTailwindcss, SiC, SiDjango } from "react-icons/si";
 
 function Skills() {
   const skills = [
@@ -43,44 +31,27 @@ function Skills() {
       <div
         style={{
           position: "absolute",
-          bottom: "5%",
-          left: "-80px",
-          width: "480px",
-          height: "480px",
+          bottom: "5%", left: "-80px",
+          width: "480px", height: "480px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(124,63,160,0.09) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(124,63,160,0.09) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
       <div
-        style={{
-          maxWidth: "1180px",
-          width: "100%",
-          position: "relative",
-          zIndex: 1,
-        }}
+        style={{ maxWidth: "1180px", width: "100%", position: "relative", zIndex: 1 }}
       >
         {/* Label */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "1.8rem",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.8rem" }}>
           <div
             style={{
-              width: "7px",
-              height: "7px",
+              width: "7px", height: "7px",
               borderRadius: "50%",
               background: "var(--purple-light)",
               boxShadow: "0 0 12px var(--purple-light)",
             }}
           />
-
           <span
             style={{
               fontFamily: "var(--font-display)",
@@ -94,8 +65,9 @@ function Skills() {
           </span>
         </div>
 
-        {/* Heading */}
+        {/* Heading + subtitle */}
         <div
+          className="skills-header"
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -108,7 +80,7 @@ function Skills() {
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(3.2rem, 5vw, 4.6rem)",
+              fontSize: "clamp(2.6rem, 5vw, 4.6rem)",
               fontWeight: 900,
               color: "var(--text-bright)",
               letterSpacing: "0.02em",
@@ -126,12 +98,11 @@ function Skills() {
               Skills
             </span>
           </h2>
-
           <p
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "1rem",
-                color: "var(--text-mid)",
+              color: "var(--text-mid)",
               maxWidth: "320px",
               lineHeight: 1.9,
             }}
@@ -142,6 +113,7 @@ function Skills() {
 
         {/* Skills grid */}
         <div
+          className="skills-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -170,8 +142,7 @@ function Skills() {
             >
               <div
                 style={{
-                  position: "absolute",
-                  inset: 0,
+                  position: "absolute", inset: 0,
                   background: `radial-gradient(circle at 80% 20%, ${glow} 0%, transparent 65%)`,
                   pointerEvents: "none",
                 }}
@@ -180,8 +151,7 @@ function Skills() {
               {/* Icon */}
               <div
                 style={{
-                  width: "64px",
-                  height: "64px",
+                  width: "64px", height: "64px",
                   borderRadius: "18px",
                   background: "rgba(232,160,32,0.07)",
                   border: "1px solid rgba(232,160,32,0.16)",
@@ -231,7 +201,6 @@ function Skills() {
                   >
                     Proficiency
                   </span>
-
                   <span
                     style={{
                       fontSize: "0.78rem",
@@ -243,7 +212,6 @@ function Skills() {
                     {level}%
                   </span>
                 </div>
-
                 <div
                   style={{
                     height: "4px",
@@ -256,8 +224,7 @@ function Skills() {
                     style={{
                       height: "100%",
                       width: `${level}%`,
-                      background:
-                        "linear-gradient(90deg, var(--teal-glow), var(--amber-moon))",
+                      background: "linear-gradient(90deg, var(--teal-glow), var(--amber-moon))",
                       borderRadius: "4px",
                       boxShadow: "0 0 8px rgba(232,160,32,0.4)",
                     }}
