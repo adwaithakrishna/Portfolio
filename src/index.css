@@ -152,7 +152,7 @@ img { display: block; }
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(6,14,24,0.97);
   backdrop-filter: blur(24px);
-  z-index: 199;
+  z-index: 300;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -174,12 +174,13 @@ img { display: block; }
   top: 24px; right: 28px;
   background: none;
   border: none;
-  color: var(--text-mid);
-  font-size: 2rem;
+  color: var(--amber-moon);
+  font-size: 2.4rem;
   cursor: pointer;
   line-height: 1;
+  z-index: 301;
+  padding: 8px 12px;
 }
-
 /* ─── RESPONSIVE BREAKPOINTS ────────────────────────────────── */
 
 /* Tablet */

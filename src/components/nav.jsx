@@ -32,7 +32,7 @@ function Navbar() {
         style={{
           position: "fixed",
           top: 0, left: 0, right: 0,
-          zIndex: 200,
+          zIndex: menuOpen ? 0 : 200,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
